@@ -118,8 +118,16 @@ def plot_coronavirus_timeline(tweets):
     plt.tight_layout()
     plt.show()
 
+def get_august_tweet(tweets):
+    counts = {}
+    for tweet in tweets:
+        for date in tweet['text'].lower():
+            date = get_tweet_date(tweet)
+            if date == "2019/08/03":
+                if "virus" in tweet['text'].lower():
+                    str = tweet['text'] 
 
-
+    print(str)
 
 
 
@@ -132,3 +140,4 @@ tweets = pickle.load(open("trumpSinceElection.dat", "rb"))
 find_kth_popular_tweet(tweets, 6)
 get_k_most_popular_words(tweets, 120)
 plot_coronavirus_timeline(tweets)
+get_august_tweet(tweets)
